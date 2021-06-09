@@ -7,11 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    aqui vai a index
-    {% for ferramenta in lista_ferramentas %}
+    <div>
+        <h1> aqui vai a index meno</h1>
     
-    <p>Ferramenta = {{ ferramenta }}</p>
+    {% for ferramenta in lista_ferramentas %}
+    <div>
+        <a href="{{ ferramenta.get_link }}">{{ ferramenta.get_nome() }}</a>
+        <p>{{ ferramenta.get_descricoes() }}</p>
+        <div>
+        {% for tag in ferramenta.get_tags() %}
+        <p>{{ tag }}</p>
+        {% endfor %}
+        </div>
 
+    </div>
     {% endfor %}
+    </div>
 </body>
 </html>
