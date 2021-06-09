@@ -42,10 +42,11 @@ li.tag {
 }
 
 div#formulario_suspenso {
-    display: block;
+    display: none;
     position: fixed;
+    top: 20%;
+    left: 35%;
     width: 400px;
-    height: 500px;
     background-color: lightgray;
     padding: 5%;
     border-style: solid;
@@ -64,6 +65,12 @@ div#formulario_suspenso div{
     margin: 10px;
 }
 
+div#botao_fecha{
+    text-align: right;
+    margin: 0%;
+    padding: 0%;
+}
+
 div#botao_form{
-    text-align: center;
+    text-align: right;
 }

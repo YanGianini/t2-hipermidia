@@ -24,7 +24,7 @@
             </form>
         </div>
         <div>
-        <button onclick="adcionar()">+ Add</button>
+        <button onclick="abrirJanela()">+ Add</button>
         </div>
     </div>
 
@@ -45,8 +45,13 @@
     </div>
 
     <div id="formulario_suspenso">
-        <form action="add">
-            <h2>Adcionar ferramenta</h2>
+
+        <div id="botao_fecha">
+            <button onclick="fecharJanela()">X</button>
+        </div>
+        
+        <form action="{{ url_for('adicionar') }}" method='POST'>
+            <h2>Adicionar ferramenta</h2>
 
             <div>
                 <label for="fer_nome">Nome:</label>
@@ -62,17 +67,17 @@
             </div>
             <div>
                 <label for="fer_tags">Tags:</label>
-                <textarea name="" id="" cols="40" rows="2"></textarea>
+                <textarea name="fer_tags" id="fer_tags" cols="40" rows="2"></textarea>
             </div>
 
             <div id="botao_form">
-            <button onclick="adcionar()" type="submit">Adicionar ferramenta</button>
+            <button type="submit">Adicionar ferramenta</button>
             </div>
             
         </form>
 
     </div>
 
-
+<script src="{{ url_for('static', filename='Scripts/scripts.js') }}"></script>
 </body>
 </html>
