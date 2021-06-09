@@ -31,9 +31,22 @@
     <div>
     {% for ferramenta in lista_ferramentas %}
         <div id="card_ferramenta">
-            <a href="{{ ferramenta.get_link }}">{{ ferramenta.get_nome() }}</a>
-            <a href="{{ url_for('deletar', nome=ferramenta.get_nome()) }}">X</a>
-            
+            <div id="header_card">
+                <a id="aHeader" href="{{ ferramenta.get_link() }}">{{ ferramenta.get_nome() }}</a>
+                <a id="aDelete" href="{{ url_for('deletar', nome=ferramenta.get_nome()) }}">X remove</a>
+                <button onclick="pop_excluir('{{ ferramenta.get_nome() }}')">Excluir</button>
+            </div>
+
+
+            <div class="pop_excluir" id="{{ferramenta.get_nome()}}">
+                <p>Deseja excluir?</p>
+                <p>{{ferramenta.get_nome()}}</p>
+                <a id="aDelete" href="{{ url_for('deletar', nome=ferramenta.get_nome()) }}">X remove</a>
+            </div>
+
+
+
+
             <p>{{ ferramenta.get_descricoes() }}</p>
             
             <div id="tags">
