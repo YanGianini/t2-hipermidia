@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>VUTTR</title>
 </head>
 <body>
-    <div>
-        <h1> aqui vai a index meno</h1>
-    
-    {% for ferramenta in lista_ferramentas %}
-    <div>
-        <a href="{{ ferramenta.get_link }}">{{ ferramenta.get_nome() }}</a>
-        <p>{{ ferramenta.get_descricoes() }}</p>
-        <div>
-        {% for tag in ferramenta.get_tags() %}
-        <p>{{ tag }}</p>
-        {% endfor %}
-        </div>
-
+    <div id="titulos">
+        <h1>VUTTR</h1>
+        <h2>Very Usefull Tools to Remember</h2>
     </div>
+
+    <div>
+    {% for ferramenta in lista_ferramentas %}
+        <div id="card_ferramenta">
+            <a href="{{ ferramenta.get_link }}">{{ ferramenta.get_nome() }}</a>
+            <p>{{ ferramenta.get_descricoes() }}</p>
+            
+            <div id="tags">
+            {% for tag in ferramenta.get_tags() %}
+            <li class="tag">#{{ tag }}</li>
+            {% endfor %}
+            </div>
+
+        </div>
     {% endfor %}
     </div>
 </body>
