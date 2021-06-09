@@ -12,3 +12,8 @@ function pop_excluir(nome){
     janela = window.document.getElementById(nome);
     janela.style.display = "block"; 
 }
+
+function fecha_pop(nome){
+    janela = window.document.getElementById(nome);
+    janela.style.display = "none"; 
+}

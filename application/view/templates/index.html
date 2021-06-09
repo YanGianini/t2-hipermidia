@@ -33,15 +33,14 @@
         <div id="card_ferramenta">
             <div id="header_card">
                 <a id="aHeader" href="{{ ferramenta.get_link() }}">{{ ferramenta.get_nome() }}</a>
-                <a id="aDelete" href="{{ url_for('deletar', nome=ferramenta.get_nome()) }}">X remove</a>
                 <button onclick="pop_excluir('{{ ferramenta.get_nome() }}')">Excluir</button>
             </div>
 
 
             <div class="pop_excluir" id="{{ferramenta.get_nome()}}">
-                <p>Deseja excluir?</p>
-                <p>{{ferramenta.get_nome()}}</p>
-                <a id="aDelete" href="{{ url_for('deletar', nome=ferramenta.get_nome()) }}">X remove</a>
+                <p>Deseja excluir {{ferramenta.get_nome()}}</p>
+                <button onclick="fecha_pop('{{ ferramenta.get_nome() }}')">Cancelar</button>
+                <a id="aDelete" href="{{ url_for('deletar', nome=ferramenta.get_nome()) }}">Confirmar</a>
             </div>
 
 
