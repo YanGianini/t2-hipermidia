@@ -13,6 +13,21 @@
         <h2>Very Usefull Tools to Remember</h2>
     </div>
 
+    <div id="campos_header">
+        <div>
+            <form action="filtrar">
+                <label for="buscar">Buscar:</label>
+                <input type="text" id="buscar", name="filtro">
+                <input type="submit">
+                <input type="checkbox" name="only_tag" id="only_tag">
+                <label for="only_tag">search in tags only</label>
+            </form>
+        </div>
+        <div>
+        <button onclick="adcionar()">+ Add</button>
+        </div>
+    </div>
+
     <div>
     {% for ferramenta in lista_ferramentas %}
         <div id="card_ferramenta">
@@ -28,5 +43,36 @@
         </div>
     {% endfor %}
     </div>
+
+    <div id="formulario_suspenso">
+        <form action="add">
+            <h2>Adcionar ferramenta</h2>
+
+            <div>
+                <label for="fer_nome">Nome:</label>
+                <input type="text" name="fer_nome" id="fer_nome">
+            </div>
+            <div>
+                <label for="fer_link">Link:</label>
+                <input type="url" name="fer_link" id="fer_link">
+            </div>
+            <div>
+                <label for="fer_desc">Descrição:</label>
+                <textarea name="fer_desc" id="fer_desc" cols="40" rows="5"></textarea>
+            </div>
+            <div>
+                <label for="fer_tags">Tags:</label>
+                <textarea name="" id="" cols="40" rows="2"></textarea>
+            </div>
+
+            <div id="botao_form">
+            <button onclick="adcionar()" type="submit">Adicionar ferramenta</button>
+            </div>
+            
+        </form>
+
+    </div>
+
+
 </body>
 </html>
