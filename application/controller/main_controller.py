@@ -25,3 +25,16 @@ def adicionar():
 
     lista_ferramentas.append(fer)
     return redirect(url_for('index'))
+
+@app.route("/deletar/<nome>", methods=["GET"])
+def deletar(nome):
+    ferramentaDAO = FerramentaDAO()
+    lista_ferramentas = ferramentaDAO.lista_ferramentas()
+    
+    for fer in lista_ferramentas:
+        if fer.get_nome() == nome:
+            lista_ferramentas.remove(fer)
+            return redirect(url_for('index'))
+
+    return redirect(url_for('index')), 404    
+

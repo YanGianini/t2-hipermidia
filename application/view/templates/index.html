@@ -32,6 +32,8 @@
     {% for ferramenta in lista_ferramentas %}
         <div id="card_ferramenta">
             <a href="{{ ferramenta.get_link }}">{{ ferramenta.get_nome() }}</a>
+            <a href="{{ url_for('deletar', nome=ferramenta.get_nome()) }}">X</a>
+            
             <p>{{ ferramenta.get_descricoes() }}</p>
             
             <div id="tags">
