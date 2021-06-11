@@ -1,9 +1,9 @@
 class Ferramenta():
-    def __init__(self, nome, link, descricoes):
+    def __init__(self, nome, link, descricoes, tags=[]):
         self.__nome = nome
         self.__link = link
         self.__descricoes = descricoes
-        self.__tags = []
+        self.__tags = tags
 
     def get_nome(self):
         return self.__nome

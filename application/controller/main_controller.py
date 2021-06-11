@@ -17,12 +17,9 @@ def adicionar():
     nome = request.form.get('fer_nome', None)
     link = request.form.get('fer_link', None)
     desc = request.form.get('fer_desc', None)
-    tags = request.form.get('fer_tags')
-    fer = Ferramenta(nome, link, desc)
-    
-    for i in tags:
-        fer.add_tag(i)
-
+    tags = request.form.get('fer_tags', None).split(", ")
+    fer = Ferramenta(nome, link, desc, tags)
+       
     lista_ferramentas.append(fer)
     return redirect(url_for('index'))
 
@@ -37,4 +34,6 @@ def deletar(nome):
             return redirect(url_for('index'))
 
     return redirect(url_for('index')), 404    
+
+
 
