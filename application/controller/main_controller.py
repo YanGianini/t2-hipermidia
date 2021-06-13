@@ -9,6 +9,7 @@ def index():
     lista_ferramentas = ferramentaDAO.lista_ferramentas()
     return render_template("index.html",lista_ferramentas=lista_ferramentas)
 
+
 @app.route("/adicionar", methods=["POST"])
 def adicionar():
     ferramentaDAO = FerramentaDAO()
@@ -18,10 +19,15 @@ def adicionar():
     link = request.form.get('fer_link', None)
     desc = request.form.get('fer_desc', None)
     tags = request.form.get('fer_tags', None).split(", ")
-    fer = Ferramenta(nome, link, desc, tags)
+
+    fer = Ferramenta(nome, link, desc)
        
+    for tag in tags:
+        fer.add_tag(tag)   
+    
     lista_ferramentas.append(fer)
     return redirect(url_for('index'))
+
 
 @app.route("/deletar/<nome>", methods=["GET"])
 def deletar(nome):
@@ -35,5 +41,19 @@ def deletar(nome):
 
     return redirect(url_for('index')), 404    
 
+
+@app.route("/filtrar")
+def filtrar():
+    ferramentaDAO = FerramentaDAO()
+    lista_ferramentas = ferramentaDAO.lista_ferramentas()
+    lista_filtrada = []
+    param = request.args.get("parametro_busca")
+
+    for ferramenta in lista_ferramentas:
+        if param in ferramenta.get_nome() or param in ferramenta.get_descricoes() or param in ferramenta.get_tags():
+            lista_filtrada.append(ferramenta)
+
+    return render_template("index.html", lista_ferramentas=lista_filtrada)
+    
 
 

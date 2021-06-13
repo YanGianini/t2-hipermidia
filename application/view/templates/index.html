@@ -15,9 +15,9 @@
 
     <div id="campos_header">
         <div>
-            <form action="filtrar">
+            <form action="{{ url_for('filtrar') }}">
                 <label for="buscar">Buscar:</label>
-                <input type="text" id="buscar", name="filtro">
+                <input type="text" id="parametro_busca", name="parametro_busca" value="{{ parametro_busca if parametro_busca != None else '' }}">
                 <input type="submit">
                 <input type="checkbox" name="only_tag" id="only_tag">
                 <label for="only_tag">search in tags only</label>
