@@ -48,12 +48,19 @@ def filtrar():
     lista_ferramentas = ferramentaDAO.lista_ferramentas()
     lista_filtrada = []
     param = request.args.get("parametro_busca")
+    checked = request.args.get("only_tag")
 
     for ferramenta in lista_ferramentas:
-        if param in ferramenta.get_nome() or param in ferramenta.get_descricoes() or param in ferramenta.get_tags():
-            lista_filtrada.append(ferramenta)
+        if checked != "only_tag":
+            if param in ferramenta.get_nome() or param in ferramenta.get_descricoes() or param in ferramenta.get_tags():
+                lista_filtrada.append(ferramenta)
+        else:
+            if param in ferramenta.get_tags():
+                lista_filtrada.append(ferramenta)
 
     return render_template("index.html", lista_ferramentas=lista_filtrada)
-    
+
+
+
 
 
